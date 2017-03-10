@@ -8,13 +8,14 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+
+library(plotly)
+data("presidents")
 ```
 
 ## Presidential Approval Rating Over Time
 
 ```{r plot, echo = FALSE, warning = FALSE, message = FALSE}
-library(plotly)
-data("presidents")
 plot_ly(x = ~time(presidents), y = ~presidents, type = "scatter", mode = "lines") %>%
         layout(xaxis = list(title = "Year"), yaxis = list(title = "Percent Approval"))
 
