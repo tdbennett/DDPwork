@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Github pages site for DDP work
 
 You can use the [editor on GitHub](https://github.com/tdbennett/DDPwork/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
