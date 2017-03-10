@@ -1,5 +1,5 @@
 ---
-title: "Presidential Approval Rating over Time"
+title: "Presidential Approval Rating, 1960-1974"
 date: "March 10, 2017"
 output: 
   ioslides_presentation:
@@ -11,15 +11,17 @@ knitr::opts_chunk$set(echo = FALSE)
 
 library(plotly)
 data("presidents")
+ts <- window(presidents, start=c(1960, 1), end=c(1974, 4))
 ```
 
-## Presidential Approval Rating Over Time
+## Presidential Approval Rating, 1960-1974
 
 ```{r plot, echo = FALSE, warning = FALSE, message = FALSE}
-plot_ly(x = ~time(presidents), y = ~presidents, type = "scatter", mode = "lines") %>%
+plot_ly(x = ~time(ts), y = ~ts, type = "scatter", mode = "lines") %>%
         layout(xaxis = list(title = "Year"), yaxis = list(title = "Percent Approval"))
 
 ### knit and then use the publish button to send to Rpubs
+### vs push to github pages
 ```
 
 ## Thanks
