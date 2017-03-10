@@ -4,6 +4,7 @@ date: "March 10, 2017"
 output: 
   ioslides_presentation:
     keep_md: true
+htmlwidgets: true
 ---
 
 ```{r setup, include=FALSE}
