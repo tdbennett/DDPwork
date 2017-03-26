@@ -22,7 +22,8 @@ shinyUI(fluidPage(
                submitButton("Submit")
           ),
           mainPanel(
-               textOutput("text1")
+               h3("Probability of seizure during the acute hospitalization:"),
+               textOutput("pred1")
           )
      )
 ))
