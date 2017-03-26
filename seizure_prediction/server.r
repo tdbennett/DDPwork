@@ -1,24 +1,25 @@
 library(shiny)
 
 function(input, output) {
+     set.seed(0948)
      
-     output$plot1 <- renderPlot({
-          set.seed(0948)
-          age <- input$sliderAge
-          abuse <- input$CheckInfl
-          sdh <- input$CheckSDH
+     output$text1 <- renderText({ 
+          age <- input$SliderAge
+          abuse <- input$radioInfl
+          sdh <- input$radioSDH
           
+          odds <- exp(-0.82483 + 
+                           (-0.00608*12)*age + 
+                           0.91957*abuse + 
+                           0.71204*sdh + 
+                           (-0.00267*12*age*abuse) +
+                           (-0.00749*12*age*sdh) +
+                           (-0.36054*abuse*sdh)
+          )
           
+          phat <- odds/(1 + odds)
+          prob <- round(phat*100, 2)
           
-          palette(c("#E41A1C", "#377EB8", "#4DAF4A", "#984EA3",
-                    "#FF7F00", "#FFFF33", "#A65628", "#F781BF", "#999999"))
-          
-          par(mar = c(5.1, 4.1, 0, 1))
-          plot(selectedData(),
-               col = clusters()$cluster,
-               pch = 20, cex = 3)
-          points(clusters()$centers, pch = 4, cex = 4, lwd = 4)
+          paste("This patient has a", prob, "% chance of seizure during the acute hospitalization.")
      })
-     
 }
-
