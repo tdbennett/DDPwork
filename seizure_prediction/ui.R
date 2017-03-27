@@ -24,7 +24,21 @@ shinyUI(fluidPage(
           ),
           mainPanel(
                h3("Probability of seizure during the acute hospitalization:"),
-               textOutput("pred1")
+               h2(textOutput("pred1")),
+               br(),
+               br(),
+               br(),
+               br(),
+               br(),
+               br(),
+               br(),
+               br(),
+               br(),
+               br(),
+               br(),
+               p("Prediction based on: Bennett KS, DeWitt PE, Harlaar N, Bennett TD.
+                 Seizures in children with traumatic brain injury; 
+                 Pediatr Crit Care Med. 2017 Jan;18(1):54-63. doi: 10.1097/PCC.0000000000000948")
           )
      )
 ))
