@@ -118,11 +118,27 @@
 <li>Subdural hemorrhage is not present on the CT scan</li>
 </ul>
 
-<p><br></p>
+<pre class = 'prettyprint lang-r'>### input parameters
+age &lt;- 3 ### age in years
+abuse &lt;- 0 ### injury was not inflicted
+sdh &lt;- 0 ### no subdural hemorrhage
+
+odds &lt;- exp(-0.82483 + (-0.00608*12)*age + 0.91957*abuse + 
+                         0.71204*sdh + 
+                         (-0.00267*12*age*abuse) +
+                         (-0.00749*12*age*sdh) +
+                         (-0.36054*abuse*sdh))
+               
+prob &lt;- paste0(round(100*(odds/(1 + odds)),1), &quot;%&quot;)</pre>
 
 <ul>
-<li><p>Seizure Risk: 26% <br> <br></p></li>
-<li><p><a href='https://pedstbi.shinyapps.io/seizure_prediction/' title=''>https://pedstbi.shinyapps.io/seizure_prediction/</a></p></li>
+<li>Seizure Risk: 26%</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Link to Prediction Tool</h2></hgroup><article  id="link-to-prediction-tool">
+
+<ul>
+<li><a href='https://pedstbi.shinyapps.io/seizure_prediction/' title=''>https://pedstbi.shinyapps.io/seizure_prediction/</a></li>
 </ul></article></slide>
 
 
