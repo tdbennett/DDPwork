@@ -10,7 +10,7 @@ shinyUI(fluidPage(
                            max = 17, 
                            value = 0),
                radioButtons("radioInfl", 
-                            label = "Was the injury inflicted",
+                            label = "Was the injury inflicted?",
                             choices = list("Yes" = 1, 
                                            "No" = 0), 
                             selected = 0),
@@ -19,7 +19,8 @@ shinyUI(fluidPage(
                                   choices = list("Yes" = 1, 
                                                  "No" = 0),
                                   selected = 0),
-               submitButton("Submit")
+               actionButton("SubmitButton", 
+                            label = "Submit")
           ),
           mainPanel(
                h3("Probability of seizure during the acute hospitalization:"),
