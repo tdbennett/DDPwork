@@ -1,0 +1,50 @@
+Prediction of Seizures in Children after Traumatic Brain Injury
+========================================================
+author: tdbennett
+date: March 26, 2017
+autosize: true
+
+Pediatric Traumatic Brain Injury (TBI)
+========================================================
+
+- is common
+- is the leading cause of mortality and acquired disability in children
+
+Seizures after TBI
+========================================================
+
+- brain injury lowers seizure threshold
+- seizures can cause additional brain injury
+
+Seizure Prediction
+========================================================
+
+- prediction of seizure likelihood would inform providers which patients are at risk
+- they can then attempt to limit seizures with medications
+
+Example
+========================================================
+
+- A 3 yo child has TBI from a fall
+- Subdural hemorrhage is not present on the CT scan
+
+```{r example, echo = TRUE, message = FALSE}
+### input parameters
+age <- 3 ### age in years
+abuse <- 0 ### injury was not inflicted
+sdh <- 0 ### no subdural hemorrhage
+
+odds <- exp(-0.82483 + (-0.00608*12)*age + 0.91957*abuse + 
+                         0.71204*sdh + 
+                         (-0.00267*12*age*abuse) +
+                         (-0.00749*12*age*sdh) +
+                         (-0.36054*abuse*sdh))
+               
+prob <- paste0(round(100*(odds/(1 + odds)),1), "%")
+```
+- Seizure Risk: `r prob`
+
+Link to Prediction Tool
+========================================================
+
+- https://pedstbi.shinyapps.io/seizure_prediction/
