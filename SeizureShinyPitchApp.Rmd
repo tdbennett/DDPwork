@@ -1,0 +1,66 @@
+---
+title: "Prediction of Seizures in Children after Traumatic Brain Injury"
+date: "March 27, 2017"
+output: 
+  ioslides_presentation:
+    keep_md: true
+htmlwidgets: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(plotly)
+data("presidents")
+ts <- window(presidents, start=c(1960, 1), end=c(1974, 4))
+```
+
+## Pediatric Traumatic Brain Injury (TBI)
+
+- is common
+- is the leading cause of mortality and acquired disability in children
+
+## Seizures after TBI
+
+- brain injury lowers seizure threshold
+- seizures can cause additional brain injury
+
+## Seizure Prediction
+
+- prediction of seizure likelihood would inform providers which patients are at risk
+- they can then attempt to limit seizures with medications
+
+## Example
+
+- A 3 yo child has TBI from a fall
+- Subdural hemorrhage is not present on the CT scan
+
+```{r example, echo = FALSE, warning = FALSE, message = FALSE}
+### input parameters
+age <- 3 ### age in years
+abuse <- 0 ### injury was not inflicted
+sdh <- 0 ### no subdural hemorrhage
+
+
+odds <- exp(-0.82483 + 
+                           (-0.00608*12)*age + 
+                           0.91957*abuse + 
+                           0.71204*sdh + 
+                           (-0.00267*12*age*abuse) +
+                           (-0.00749*12*age*sdh) +
+                           (-0.36054*abuse*sdh))
+               
+prob <- paste0(round(100*(odds/(1 + odds)),1), "%")
+
+
+### knit and then use the publish button to send to Rpubs
+### vs push to github pages
+```
+<br>
+
+- Seizure Risk: `r prob`
+<br>
+<br>
+
+- https://pedstbi.shinyapps.io/seizure_prediction/
+
